@@ -1,0 +1,39 @@
+<!-- employee-form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>employee Form</title>
+   <link th:href="@{/css/app.css}" rel="stylesheet"/>
+   <link th:href="@{/css/familyNunito.css}" rel="stylesheet"/>
+</head>
+<body>
+    <form th:action="@{/employees/edit/{id}(id=${employee.employee_id})}" th:object="${employee}" method="post">
+		<input type="hidden" th:field="*{employee_id}" />
+		<div class="form-group row">
+			<label for="name" class="col-md-4 col-form-label text-md-right"><span>Last Name</span></label>
+			<div class="col-md-6">
+				<input id="username" type="text" class="form-control"
+					th:errorclass="is-invalid" name="username" th:field="*{last_name}"/>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="name" class="col-md-4 col-form-label text-md-right"><span>First Name</span></label>
+
+			<div class="col-md-6">
+				<input id="first_name" type="text" class="form-control"
+					name="full_name" th:field="*{first_name}" autocomplete="First Name"/>
+			</div>
+		</div>
+
+		
+		<div class="form-group row mb-0">
+			<div class="col-md-6 offset-md-4">
+				<button type="submit" class="btn btn-primary">
+					<span>Edit</span>
+				</button>
+			</div>
+		</div>
+    </form>
+</body>
+</html>

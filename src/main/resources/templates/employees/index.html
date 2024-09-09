@@ -1,0 +1,47 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employees</title>
+    <script th:src="@{/js/app.js}"></script>
+	<script th:src="@{/plugins/jquery-ui/1.12.1/jquery-ui.js}"></script>
+	<script th:src="@{/js/sweetalert2.all.min.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/sweetalert2.min.css}"></link>
+	<link th:href="@{/css/app.css}" rel="stylesheet"/>
+    <link th:href="@{/css/familyNunito.css}" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Employees</h1>
+    <a class="btn btn-primary btn-sm float-sm-right" th:href="@{/employees/create}">Create</a>
+    <table class="table table-bordered table-hover responsive" style="width: 100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>first_name</th>
+                <th>last_name</th>
+                <th>email</th>
+                <th>job_id</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.employee_id}"></td>
+                <td th:text="${employee.first_name}"></td>
+                <td th:text="${employee.last_name}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.job_id}"></td>
+                <td>
+                    <a th:href="@{/employees/edit/{id}(id=${employee.employee_id})}">Edit</a>
+                    <button th:attr="data-id=${employee.employee_id}" class="btn delete">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   
+    <script   th:src="@{/js/employee/index.js}"></script>
+    <script th:inline="javascript">		
+		var	Delete_button = /*[[#{Delete}]]*/ ''			 
+	</script>
+</body>
+</html>

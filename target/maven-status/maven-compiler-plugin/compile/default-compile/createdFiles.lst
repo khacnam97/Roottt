@@ -1,0 +1,8 @@
+com\comit\notjpa\Application.class
+com\comit\notjpa\controllers\HomController.class
+com\comit\notjpa\entities\Employee.class
+com\comit\notjpa\dao\EmployeeDao.class
+com\comit\notjpa\dao\AbstractDao.class
+com\comit\notjpa\dao\EmployeeDaoImpl.class
+com\comit\notjpa\config\HibernateConfig.class
+com\comit\notjpa\services\EmployeeService.class

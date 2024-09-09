@@ -1,0 +1,56 @@
+<!-- employee-form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>employee Form</title>
+   <link th:href="@{/css/app.css}" rel="stylesheet"/>
+   <link th:href="@{/css/familyNunito.css}" rel="stylesheet"/>
+</head>
+<body>
+    <form th:action="@{/employees/create}" th:object="${employee}" method="post">
+		<div class="form-group row">
+			<label for="name" class="col-md-4 col-form-label text-md-right"><span>Last Name</span></label>
+			<div class="col-md-6">
+				<input id="username" type="text" class="form-control"
+					th:errorclass="is-invalid" name="last_name" th:field="*{last_name}" />
+					<p th:errors="*{last_name}" class="text-danger"
+						th:if="${#fields.hasErrors('last_name')}"></p>
+			</div>
+		</div>
+
+		
+		<div class="form-group row">
+			<label for="name" class="col-md-4 col-form-label text-md-right"><span>First Name</span></label>
+
+			<div class="col-md-6">
+				<input id="first_name" type="text" class="form-control"
+					name="first_name" th:field="*{first_name}" autocomplete="First Name" required="required"/>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="name" class="col-md-4 col-form-label text-md-right"><span>Email</span></label>
+			<div class="col-md-6">
+				<input id="email" type="email" class="form-control"
+					name="email" th:field="*{email}" autocomplete="Enail" required="required"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label for="name" class="col-md-4 col-form-label text-md-right"><span>Job</span></label>
+			<div class="col-md-6">
+				<input id="job_id" type="text" class="form-control"
+					name="job_id" th:field="*{job_id}" autocomplete="Job"/>
+			</div>
+		</div>
+		
+		<div class="form-group row mb-0">
+			<div class="col-md-6 offset-md-4">
+				<button type="submit" class="btn btn-primary">
+					<span>Create</span>
+				</button>
+			</div>
+		</div>
+    </form>
+</body>
+</html>
